@@ -1,0 +1,98 @@
+#GROUP B CAMPUS CALCULATOR AND CONVERTER
+import math
+def save_history(text):
+    with open("history.txt", "a") as f:
+     f.write(text + "\n")
+
+def calculator():
+    print("====SCIENTIFIC CALCULATOR====")
+    a = float(input("enter the first value:"))
+    b = float(input("enter the second value:"))
+    op = input("choose an operator: + - * ^ /:")
+    if op == '-': r = a - b
+    elif op == '+': r = a + b
+    elif op == '*': r = a * b
+    elif op == '^': r = a ^ b
+    elif op == '/': r = a / b
+    else: r = "Invalid"
+    print(f"Result", r)
+    save_history(f"Calc: {a} {op} {b} = {r}")
+    
+def gpa():
+    print("\n=======GPA  CALCULATOR========")
+    print("\nMbarara university of science and technology grading scale")
+    num = int(input("How many courses ?"))
+    total_points =0
+    total_credits =0
+    total_credit_units =0
+
+    for i in range (1, num + 1):
+     marks = float(input(f"enter the marks for course {i}(0_100):"))
+     credit_units = int(input(f"enter the credit_units fot the course{i}:"))
+    if marks >=80:
+        grade, points = "A", 5.0
+    elif marks >=70:
+            grade, points = "B", 4.0
+    elif marks >=60:
+    elif marks >=60:
+        grade, points = "C", 3.0
+    elif marks >=50:
+        grade, points = "D", 2.0
+    else:
+        grade, points = "F", 0.0
+    print(f"Grade: {grade}, {points}")
+
+    total_points += points * total_credits
+    total_credit_units += total_credits
+    if total_credit_units > 0:
+       gpa = float(total_points) / total_credit_units 
+       print(f"\nGPA: {gpa:.2f}")
+
+    if gpa >=4.40:
+        print("Class: First class\n")
+    elif gpa >=3.60:
+            print("Class: Second class upper\n")
+    elif gpa >=2.80:
+            print("Class: Second class lower\n")
+    elif gpa >= 2.00:
+            print("Class: Pass degree\n")
+    else:
+            print("Class: Retake\n")
+    save_history(f"\nGPA = {gpa:.2f}")
+
+
+def money():
+        print("\n===CURRENCY CONVERTER=====")
+
+        ugx = float(input("enter UGX:"))
+        print(f"USD = {ugx/3850:.3f}")
+        print(f"KES = {ugx/29.5:.3f}")
+        save_history(f"Money = {ugx}")
+
+def unit():
+            print("\n====UNIT CONVERTER=====")
+            m = float(input("enter metres:"))
+            print(f"km = {m * 1000}")
+            print(f"grams if kg = {m * 1000}(enter the same value as kg)")
+            save_history(f"unit: {m} = {m * 1000}km ")
+#MENU PART SYSTEM
+while True:
+            print("\n===================")
+            print("\nGROUP B CAMPUS CALCULATOR AND CONVERTER")
+            print("\n Group leader_ SIR IGNI")
+            print("====================")
+            print("\n1. SCIENTIFIC_CALCULATOR 2.GPA 3. UNIT  4. MONEY 5. EXIST")
+            c = input("choose:")
+            if c == "1": calculator()
+            elif c == "2": gpa()
+            elif c == "3": unit()
+            elif c == "4": money()
+            elif c == "5": exist()
+            else: print("Invalid input")
+
+            
+                      
+            
+    
+    
+    
